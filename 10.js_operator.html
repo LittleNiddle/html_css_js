@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js operator</title>
+    <script>
+        function biggerNum(a, b){
+            const bigger = (a>b)?a:b;
+            document.getElementById("result").innerHTML = bigger;
+        }
+
+        function compareString(){
+            // js에서 문자열 비교는 부등호 사용 가능
+            const st1 = "abc";
+            const st2 = "bcd";
+            console.log(st1>st2);
+        }
+
+        function convertType(){
+            // let st1="10";
+            // let st2="hello";
+            // let num1=Number(st1);
+            // num1 = String(num1);
+            // console.log(typeof num1);
+            // let num2 = Number(st2);
+            // console.log(st2); // NaN : (Not a Number)가 담김
+
+            // // *** js에서 문자와 숫자를 비교하는게 매우 중요하다. ***
+            // // == 은 타입은 체크하지 않음. === 타입까지 체크
+            // console.log(10==10); // true
+            // console.log(10===10); // true
+            // console.log(10=='10'); // true 타입 무시하고 값만 비교
+            // console.log(10==='10') // false 타입까지 고려하여 비교
+
+            let v1; // Undifined가 할당
+            let v2 = null; // null 이 할당
+
+            console.log(v1);
+            console.log(v2);
+            console.log(v1==v2); // true
+            console.log(v1===v2); // false
+
+            let p1 = {name:"hong", email:"abc@naver.com", nickName:null};
+            console.log(p1.nickName); // null
+            console.log(p1.age); // undifined
+
+        }
+    </script>
+</head>
+<body>
+    <h2>연산자 예시</h2>
+    <button onclick="biggerNum(10,20)">삼항연산자 결과</button>
+    <p id="result">결과값</p>
+
+    <button onclick="compareString()">문자비교 결과</button>
+    
+    <button onclick="convertType()">형변환</button>
+    <br>
+    <button onclick="biggerNum2(10,20)">삼항연산자와 형변환 활용</button>
+    <br>
+    <input id="first" type="text"> <input id="second" type="text">
+    <br>
+    <span id="result2">둘중 더 큰값</span>
+    
+    <script>
+        function biggerNum2(){
+            // HTML의 요소는 기본이 문자값 => 숫자값으로 형변환 필요
+            const first = document.getElementById("first").value;
+            const second = document.getElementById("second").value;
+            const firstNumber = Number(first);
+            const secondNumber = Number(second);
+            const bigger = (firstNumber>secondNumber)?firstNumber:secondNumber;
+            document.getElementById("result2").innerHTML=bigger;
+        }
+    </script>
+
+</body>
+</html>
